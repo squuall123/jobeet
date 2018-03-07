@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>{% block title %}Welcome!{% endblock %}</title>
+        
+                    <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+        <style type="text/css">
+
+.navbar-brand { position: relative; z-index: 2; }
+
+.navbar-nav.navbar-right .btn { position: relative; z-index: 2; padding: 4px 20px; margin: 10px auto; transition: transform 0.3s; }
+
+.navbar .navbar-collapse { position: relative; overflow: hidden !important; }
+.navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 22px; }
+
+.navbar .nav-collapse { position: absolute; z-index: 1; top: 0; left: 0; right: 0; bottom: 0; margin: 0; padding-right: 120px; padding-left: 80px; width: 100%; }
+.navbar.navbar-default .nav-collapse { background-color: #f8f8f8; }
+.navbar.navbar-inverse .nav-collapse { background-color: #222; }
+.navbar .nav-collapse .navbar-form { border-width: 0; box-shadow: none; }
+.nav-collapse>li { float: right; }
+
+.btn.btn-circle { border-radius: 50px; }
+.btn.btn-outline { background-color: transparent; }
+
+.navbar-nav.navbar-right .btn:not(.collapsed) {
+    background-color: rgb(111, 84, 153);
+    border-color: rgb(111, 84, 153);
+    color: rgb(255, 255, 255);
+}
+
+.navbar.navbar-default .nav-collapse,
+.navbar.navbar-inverse .nav-collapse {
+    height: auto !important;
+    transition: transform 0.3s;
+    transform: translate(0px,-50px);
+}
+.navbar.navbar-default .nav-collapse.in,
+.navbar.navbar-inverse .nav-collapse.in {
+    transform: translate(0px,0px);
+}
+
+
+@media screen and (max-width: 767px) {
+    .navbar .navbar-collapse .navbar-right > li:last-child { padding-left: 15px; padding-right: 15px; } 
+    
+    .navbar .nav-collapse { margin: 7.5px auto; padding: 0; }
+    .navbar .nav-collapse .navbar-form { margin: 0; }
+    .nav-collapse>li { float: none; }
+    
+    .navbar.navbar-default .nav-collapse,
+    .navbar.navbar-inverse .nav-collapse {
+        transform: translate(-100%,0px);
+    }
+    .navbar.navbar-default .nav-collapse.in,
+    .navbar.navbar-inverse .nav-collapse.in {
+        transform: translate(0px,0px);
+    }
+    
+    .navbar.navbar-default .nav-collapse.slide-down,
+    .navbar.navbar-inverse .nav-collapse.slide-down {
+        transform: translate(0px,-100%);
+    }
+    .navbar.navbar-default .nav-collapse.in.slide-down,
+    .navbar.navbar-inverse .nav-collapse.in.slide-down {
+        transform: translate(0px,0px);
+    }
+}
+
+    </style>
+    <style type="text/css">
+    body{
+  font-family: 'Raleway', sans-serif;
+}
+
+footer{
+    background-color:#222222;
+    padding: 60px 0px;
+}
+
+footer ul{
+    list-style:none;
+    margin:0 auto;
+    display:inline-block;
+    padding-top:50px;
+}
+
+footer ul li{
+    float:left;
+}
+
+footer ul li a{
+    color:#b1aca1;
+    padding:20px;
+}
+
+footer ul li a:hover{
+    color:#7dabdb;
+    text-decoration:none;
+}
+
+.footer-top{
+    padding-bottom:50px;
+}
+
+.footer-top .fa{
+    font-size:18px;
+    color: #FFF;
+    padding-right:10px;
+}
+
+.footer-top a{
+    color:#FFF;
+    text-decoration:none;
+}
+
+.footer-top .col-lg-2:hover .fa , .footer-top .col-lg-2:hover a{
+    color:#7dabdb;
+}
+
+.copyright{
+    background-color:#f0f0f0;
+}
+
+.copyright p{
+    font-size:12px;
+    padding:15px 0 10px 0;
+}
+
+
+    </style>
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.2/html5shiv.min.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+        {% block stylesheets %}
+        {% endblock %}
+        <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">   
+                        <!-- jQuery -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        <!-- Bootstrap JavaScript -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+        <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+        {% block javascripts %}
+        {% endblock %}
+    </head>
+    <body>
+        <div class="container-fluid">
+    <!-- Second navbar for search -->
+    <nav class="navbar navbar-inverse">
+      <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-3">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Jobeet</a>
+        </div>
+    
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="navbar-collapse-3">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="/">Home</a></li>
+            {% if app.user != null %}
+            <li><a href="/job/new">Add Job</a></li>
+            <li><a href="/category/new">Add Category</a></li>
+             {% if is_granted('ROLE_ADMIN')%}
+            <li><a href="/admin">Dashboard</a></li>
+            {% endif %}
+            <li><a href="/logout">LogOut</a></li>
+            {% endif %}
+            {% if app.user == null%}
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register">Register</a></li>
+            {% endif %}
+           
+            
+            <li>
+              <a class="btn btn-default btn-outline btn-circle collapsed"  data-toggle="collapse" href="#nav-collapse3" aria-expanded="false" aria-controls="nav-collapse3">Search</a>
+            </li>
+          </ul>
+          <div class="collapse nav navbar-nav nav-collapse slide-down" id="nav-collapse3">
+            <form class="navbar-form navbar-right" role="search">
+              <div class="form-group">
+                <input type="text" class="form-control" placeholder="Search" />
+              </div>
+              <button type="submit" class="btn btn-danger"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+            </form>
+          </div>
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container -->
+    </nav><!-- /.navbar -->
+</div><!-- /.container-fluid -->
+
+
+
+        {% block body %}{% endblock %}
+    </body>
+    <footer>
+        <div class="container">
+        <div class="footer-top"> 
+           <div class="container">
+             <div class="col-lg-2 col-xs-12 text-center">
+                 <a href="#"><i class="fa fa-facebook fa-2x"></i>Facebook</a>
+             </div>
+              <div class="col-lg-2 col-xs-12 text-center">
+                 <a href="#"><i class="fa fa-twitter fa-2x"></i>Twitter</a>
+             </div>
+              <div class="col-lg-2 col-xs-12 text-center">
+                 <a href="#"><i class="fa fa-flickr fa-2x"></i>Flickr</a>
+             </div>
+              <div class="col-lg-2 col-xs-12 text-center">
+                 <a href="#"><i class="fa fa-tumblr fa-2x"></i>Tumblr</a>
+             </div>
+              <div class="col-lg-2 col-xs-12 text-center">
+                 <a href="#"><i class="fa fa-github fa-2x"></i>Github</a>
+             </div>
+              <div class="col-lg-2 col-xs-12 text-center">
+                 <a href="#"><i class="fa fa-google-plus fa-2x"></i>Google</a>
+             </div>
+           </div> 
+        </div>  
+        
+        <div class="container" style="border-top:1px solid grey;">
+            <div class="row text-center">   
+                <div class="col-lg-6 col-lg-offset-3">
+                      <ul class="menu">
+                                 
+                             <li>
+                                <a href="/">Home</a>
+                              </li>
+                                   
+                              <li>
+                                 <a href="#">About</a>
+                              </li>
+                                   
+                              <li>
+                                <a href="#">Blog</a>
+                              </li>
+                                   
+                             
+                                   
+                              <li>
+                                <a href="#">Contact</a>
+                             </li>
+                   
+                        </ul>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+</html>

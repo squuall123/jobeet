@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+            <div class="container">
+                <center><h1>Create new Job</h1></center>
+                
+                 
+            </div>
+        </div>
+
+    
+        <div class="container" >
+            {{ form_start(form) }}
+        <div class="row" style="background-color:#D3D3D3; width:500px;position:relative;left:30%;height:400px;border: 2px solid black;">
+        <div style="position:relative;left:150px;top:20px;">{{ form_label(form.type) }}<br>
+        {{ form_widget(form.type) }}</div>
+        <div style="position:relative;left:150px;top:20px;">{{ form_label(form.company) }}<br>
+        {{ form_widget(form.company) }}</div>
+        <div style="position:relative;left:150px;top:20px;">{{ form_label(form.description) }}<br>
+        {{ form_widget(form.description) }}</div>
+        <div style="position:relative;left:150px;top:20px;">{{ form_label(form.email) }}<br>
+        {{ form_widget(form.email) }}</div>
+        <div style="position:relative;left:150px;top:20px;">{{ form_label(form.category) }}<br>
+        {{ form_widget(form.category) }}</div>
+        <div style="position:relative;left:150px;top:20px;">{{ form_label(form.ville) }}<br>
+        {{ form_widget(form.ville) }}</div>
+        <div style="position:relative;left:150px;top:20px;">
+            {% if is_granted('ROLE_ADMIN')%}
+                {{ form_label(form.isActivated) }}
+                {{ form_widget(form.isActivated) }}
+            {% endif %}
+            </div>
+      <br>
+
+        <input style="position:relative;left:150px;top:20px;"class="btn btn-success" type="submit" value="Create" />
+        
+   {{ form_end(form) }}
+
+        </div>
+        <br>
+               <nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><a href="{{ path('job_index') }}" ><span aria-hidden="true">&larr;</span> Back to the list</a></li>
+            </ul>
+        </nav>
+      
+    
+      </div>
+{% endblock %}

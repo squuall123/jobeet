@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+        <div class="container">
+            <center><h1>Category creation</h1></center>
+        </div>
+    </div>
+    
+    <div class="container">
+
+    {{ form_start(form) }}
+            {{ form_label(form.nom) }}<br>
+            {{ form_widget(form.nom) }}
+        <input class"btn btn-warning" type="submit" value="Create"/>
+    {{ form_end(form) }}
+
+    <nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><a href="{{ path('category_index') }}" ><span aria-hidden="true">&larr;</span> Back to the list of categories</a></li>
+            </ul>
+        </nav>
+    </div>
+{% endblock %}

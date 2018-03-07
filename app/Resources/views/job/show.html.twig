@@ -1,0 +1,68 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="jumbotron">
+           
+                <center><h1>Job {{ job.id }} Details</h1></center>
+                
+                 
+           
+        </div>
+
+ 
+        <tbody>
+            <div class="container">
+                <div><strong>Type :</strong>
+                {{ job.type }}</div>
+           
+                <br>
+            <div><strong>Company :</strong>
+                {{ job.company }}</div>
+                <br>
+            <div><strong>Description :</strong>
+                {{ job.description }}</div><br>
+                 {% if is_granted('ROLE_ADMIN')%}
+            <div><strong>Isactivated : </strong>
+                {% if job.isActivated %}Yes{% else %}No{% endif %}</div> <br>  
+                    
+                      {% endif %}
+
+           <div><strong>Expiresat :</strong>
+                {% if job.expiresAt %}{{ job.expiresAt|date('Y-m-d') }}{% endif %}</div><br>
+            
+           <div><strong>Email :</strong>
+                {{ job.email }}</div><br>
+            <div><strong>Category :</strong>
+                {{ job.category }}</div><br>
+            <div><strong>Ville :</strong>
+                {{ job.ville }}</div><br>
+            
+            
+       
+   
+<a href="{{ path('candidature_new', { 'id': job.id }) }}"  class="btn btn-success">Apply for this job</a>
+
+
+<a href="{{ path('candidature_index', { 'id': job.id }) }}"  class="btn btn-warning">List of candidatures for this job</a>
+
+
+
+        <nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><a href="{{ path('job_index') }}" ><span aria-hidden="true">&larr;</span> Back to the list</a></li>
+            </ul>
+        </nav>
+      
+        {% if is_granted('ROLE_ADMIN')%}
+      
+            <a href="{{ path('job_edit', { 'id': job.id }) }}" class="btn btn-warning">Edit</a><br><br>
+        
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete" class="btn btn-danger">
+            {{ form_end(delete_form) }}
+        
+    {% endif %}
+     </div>
+        </tbody>
+   
+{% endblock %}

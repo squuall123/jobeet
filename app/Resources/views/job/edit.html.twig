@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+        <div class="jumbotron">
+            <center> <h1>Job edit</h1></center>
+           
+        </div>
+   
+    </div>
+    <div class="container ">
+    {{ form_start(edit_form) }}
+         {{ form_label(edit_form.type) }}<br>
+        {{ form_widget(edit_form.type) }}<br>
+        {{ form_label(edit_form.company) }}<br>
+        {{ form_widget(edit_form.company) }}<br>
+        {{ form_label(edit_form.description) }}<br>
+        {{ form_widget(edit_form.description) }}<br>
+        {{ form_label(edit_form.email) }}<br>
+        {{ form_widget(edit_form.email) }}<br>
+        {{ form_label(edit_form.category) }}<br>
+        {{ form_widget(edit_form.category) }}<br>
+        {{ form_label(edit_form.ville) }}<br>
+        {{ form_widget(edit_form.ville) }}
+        
+    <nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><a href="{{ path('job_index') }}" ><span aria-hidden="true">&larr;</span> Back to the list</a></li>
+            </ul>
+        </nav>
+    <input class="btn btn-warning" type="submit" value="Edit" /><br><br>
+    {{ form_end(edit_form) }}
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+            </div>
+        
+{% endblock %}

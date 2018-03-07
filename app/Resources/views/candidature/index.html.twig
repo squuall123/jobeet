@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="container">
+    <div class="jumbotron">
+        
+            <center><h1>Candidacy list</h1></center>
+        </div>
+    </div>
+    <div class="container">
+<table class="table table-bordered table-hover">
+    <thead>
+        <tr>
+            
+                <th>Candidat</th>
+                <th>Contenu</th>
+                <th>Date</th>
+                <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for candidature in candidatures %}
+            <tr>
+               
+                <td>{{ candidature.candidat }}</td>
+                <td>{{ candidature.contenu }}</td>
+                <td>{% if candidature.date %}{{ candidature.date|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>
+                   
+                      
+                            <a class="btn btn-info" href="{{ path('candidature_show', { 'id': candidature.id }) }}">show</a>
+                       <br><br>
+                        {% if is_granted('ROLE_ADMIN')%}
+                            <a class="btn btn-warning" href="{{ path('candidature_edit', { 'id': candidature.id }) }}">edit</a>
+                        
+                        {% endif %}
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+    
+
+   
+    </div>
+{% endblock %}

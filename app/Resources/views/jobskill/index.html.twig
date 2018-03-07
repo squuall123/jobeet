@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Jobskills list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Level</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for jobSkill in jobSkills %}
+            <tr>
+                <td><a href="{{ path('jobskill_show', { 'id': jobSkill.id }) }}">{{ jobSkill.id }}</a></td>
+                <td>{{ jobSkill.level }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('jobskill_show', { 'id': jobSkill.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('jobskill_edit', { 'id': jobSkill.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('jobskill_new') }}">Create a new jobSkill</a>
+        </li>
+    </ul>
+{% endblock %}

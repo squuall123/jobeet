@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+   <div class="jumbotron">
+            <div class="container">
+               <center><h1>Candidacy creation</h1></center> 
+            </div>
+    </div>
+
+    {{ form_start(form) }}
+        <div class="container">
+        <div class="row" style="background-color:#D3D3D3; width:500px;position:relative;left:350px;height:300px;border: 2px solid black;">
+        <div style="position:relative;left:150px;top:20px;">{{ form_label(form.candidat) }}<br>
+        {{ form_widget(form.candidat) }}</div>
+        <div style="position:relative;left:150px;top:20px;">{{ form_label(form.contenu) }}<br>
+        {{ form_widget(form.contenu) }}</div>
+        <div style="position:relative;left:150px;top:20px;">{{ form_label(form.date) }}<br>
+        {{ form_widget(form.date) }}</div>
+        <div style="position:relative;left:150px;top:20px;">{{ form_label(form.job) }}<br>
+        {{ form_widget(form.job) }}</div>
+       
+            
+      <br>
+     
+
+      <input style="position:relative;left:150px;top:20px;" class="btn btn-success"type="submit" value="Create" />
+    {{ form_end(form) }}
+          </div>
+       <nav aria-label="...">
+  <ul class="pager">
+    <li class="previous"><a href="{{ path('job_show',{ 'id': candidature.job })}} " ><span aria-hidden="true">&larr;</span> Back to the job</a></li>
+            </ul>
+        </nav>
+        
+    
+{% endblock %}
+  

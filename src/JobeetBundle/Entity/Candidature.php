@@ -1,0 +1,161 @@
+<?php
+
+namespace JobeetBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Candidature
+ *
+ * @ORM\Table(name="candidature")
+ * @ORM\Entity(repositoryClass="JobeetBundle\Repository\CandidatureRepository")
+ */
+class Candidature
+{
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
+     */
+    private $id;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="candidat", type="string", length=255)
+     */
+    private $candidat;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="contenu", type="string", length=255)
+     */
+    private $contenu;
+
+    /**
+     * @var \DateTime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    private $date;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="JobeetBundle\Entity\Job")
+     *
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $job;
+
+    /**
+     * Get id
+     *
+     * @return int
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set candidat
+     *
+     * @param string $candidat
+     *
+     * @return Candidature
+     */
+    public function setCandidat($candidat)
+    {
+        $this->candidat = $candidat;
+
+        return $this;
+    }
+
+    /**
+     * Get candidat
+     *
+     * @return string
+     */
+    public function getCandidat()
+    {
+        return $this->candidat;
+    }
+
+    /**
+     * Set contenu
+     *
+     * @param string $contenu
+     *
+     * @return Candidature
+     */
+    public function setContenu($contenu)
+    {
+        $this->contenu = $contenu;
+
+        return $this;
+    }
+
+    /**
+     * Get contenu
+     *
+     * @return string
+     */
+    public function getContenu()
+    {
+        return $this->contenu;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return Candidature
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * Set job
+     *
+     * @param \JobeetBundle\Entity\Job $job
+     *
+     * @return Candidature
+     */
+    public function setJob(\JobeetBundle\Entity\Job $job)
+    {
+        $this->job = $job;
+
+        return $this;
+    }
+
+    /**
+     * Get job
+     *
+     * @return \JobeetBundle\Entity\Job
+     */
+    public function getJob()
+    {
+        return $this->job;
+    }
+
+        public function __toString() {
+    return (string)$this->id;
+}
+}

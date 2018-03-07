@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+     <div class="container">
+    <div class="jumbotron">
+    <center><h1>Candidacy</h1></center>
+</div>
+</div>
+<div class="container">
+    <ul>
+
+        <li><strong>Candidat:</strong>
+                {{ candidature.candidat }}</li><br>
+            <li> <strong>Contenu:</strong>
+                {{ candidature.contenu }}</li><br>
+       
+    
+           <li><strong>Date:</strong>
+               {% if candidature.date %}{{ candidature.date|date('Y-m-d H:i:s') }}{% endif %}</li>
+            
+            
+                 </ul>
+           
+        </tbody>
+   
+            <ul class="pager">
+    <li class="previous"><a href="{{ path('job_show',{ 'id': candidature.job })  }} " ><span aria-hidden="true">&larr;</span> Back to the job</a></li>
+            </ul>
+        </nav>
+   
+           
+             {% if is_granted('ROLE_ADMIN')%}
+            <a class="btn btn-warning" href="{{ path('candidature_edit', { 'id': candidature.id }) }}">Edit</a><br><br>
+        
+            {{ form_start(delete_form) }}
+                <input class="btn btn-danger" type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        {% endif %}
+        
+    </div>
+{% endblock %}
